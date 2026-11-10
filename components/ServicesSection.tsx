@@ -1,154 +1,108 @@
-"use client";
-
 const services = [
   {
-    number: "01",
-    category: "Commercial",
-    subtitle: "Models",
-    description:
-      "Print, runway, and brand campaigns with rate-card transparency and usage rights audited line by line.",
+    num: "01",
+    title: "Celebrities",
+    desc: "Personal brand architecture for Indian television names, film actors, and cultural figures whose reputation has outgrown their media presence.",
   },
   {
-    number: "02",
-    category: "Screen",
-    subtitle: "Actors",
-    description:
-      "Films, OTT series, and ad films including audition pipelines, coaching introductions, and contract review.",
+    num: "02",
+    title: "Founders",
+    desc: "Positioning and narrative strategy for entrepreneurs and business leaders who need to operate as both operator and public figure simultaneously.",
   },
   {
-    number: "03",
-    category: "Digital",
-    subtitle: "Creators",
-    description:
-      "Brand integrations, long-form deals, and IP ownership designed to convert audience into screen careers.",
+    num: "03",
+    title: "Luxury Houses",
+    desc: "Brand identity and editorial direction for hospitality groups, interiors studios, and lifestyle brands that sit at the top of their category.",
+  },
+  {
+    num: "04",
+    title: "Heritage Brands",
+    desc: "Reinvention strategy and modern editorial identity for houses with legacy to preserve and new audiences to reach — without losing what made them.",
+  },
+  {
+    num: "05",
+    title: "Cultural Icons",
+    desc: "Long-horizon reputation strategy for public figures whose influence spans industries, geographies, and the cultural conversation itself.",
   },
 ];
 
 export default function ServicesSection() {
   return (
-    <section
-      id="services"
-      style={{
-        padding: "120px 24px",
-        maxWidth: "1280px",
-        margin: "0 auto",
-      }}
-    >
-      {/* Header */}
-      <div style={{ marginBottom: "80px" }}>
-        <p
+    <section id="services" style={{ borderTop: "1px solid #EBC2BF", background: "#F1E9E2", padding: "120px 0" }}>
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 32px" }}>
+        {/* Header */}
+        <div
+          className="services-header"
           style={{
-            fontSize: "11px",
-            letterSpacing: "0.14em",
-            textTransform: "uppercase",
-            color: "#c9a84c",
-            marginBottom: "16px",
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 80,
+            marginBottom: 80,
+            alignItems: "end",
           }}
         >
-          What we do
-        </p>
-        <h2
-          style={{
-            fontSize: "clamp(28px, 4vw, 52px)",
-            fontWeight: 300,
-            letterSpacing: "-0.02em",
-            color: "#f5f0eb",
-            lineHeight: 1.1,
-          }}
-        >
-          Three ways we work
-        </h2>
-      </div>
-
-      {/* Service cards */}
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-          gap: "1px",
-          border: "1px solid #2a2a2a",
-        }}
-      >
-        {services.map((service, i) => (
-          <div
-            key={service.number}
-            style={{
-              padding: "48px 40px",
-              background: "#141414",
-              borderRight: i < 2 ? "1px solid #2a2a2a" : "none",
-              transition: "background 0.3s",
-            }}
-            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#1a1a1a")}
-            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#141414")}
-          >
-            <p
-              style={{
-                fontSize: "11px",
-                color: "#c9a84c",
-                letterSpacing: "0.12em",
-                marginBottom: "32px",
-                fontWeight: 500,
-              }}
-            >
-              {service.number}
+          <div>
+            <p style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: "#5F101C", marginBottom: 16, fontWeight: 500 }}>
+              Who we work with
             </p>
-            <h3
+            <h2
+              className="font-display"
               style={{
-                fontSize: "26px",
+                fontSize: "clamp(32px, 4vw, 58px)",
                 fontWeight: 300,
-                color: "#f5f0eb",
-                marginBottom: "6px",
-                letterSpacing: "-0.01em",
+                letterSpacing: "-0.02em",
+                color: "#2c1215",
+                lineHeight: 1.02,
               }}
             >
-              {service.category}
-            </h3>
-            <p
-              style={{
-                fontSize: "12px",
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "#c9a84c",
-                marginBottom: "24px",
-              }}
-            >
-              {service.subtitle}
-            </p>
-            <p
-              style={{
-                fontSize: "15px",
-                lineHeight: 1.7,
-                color: "#888880",
-              }}
-            >
-              {service.description}
-            </p>
+              Five kinds of work.
+              <br />
+              One standard.
+            </h2>
           </div>
-        ))}
-      </div>
+          <p style={{ fontSize: 15, lineHeight: 1.8, color: "#9a7578" }}>
+            The studio remains intentionally small — a tight team taking no more than a handful of commissions a year. This is not scalability. This is craft.
+          </p>
+        </div>
 
-      {/* Quote */}
-      <div
-        style={{
-          marginTop: "80px",
-          padding: "48px 40px",
-          borderLeft: "2px solid #c9a84c",
-          background: "#141414",
-        }}
-      >
-        <p
-          style={{
-            fontSize: "clamp(16px, 2vw, 20px)",
-            fontWeight: 300,
-            lineHeight: 1.6,
-            color: "#f5f0eb",
-            fontStyle: "italic",
-            maxWidth: "720px",
-          }}
-        >
-          &ldquo;Every talent is mapped across all three lanes from day one. The creator-to-actor
-          transition is not an accident — it&apos;s a strategy.&rdquo;
-        </p>
+        {/* Service rows */}
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {services.map((s) => (
+            <div
+              key={s.num}
+              className="service-row"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "72px 1fr 2fr",
+                gap: 40,
+                padding: "40px 32px",
+                borderTop: "1px solid #EBC2BF",
+                alignItems: "start",
+                transition: "background 0.3s",
+                marginLeft: -32,
+                marginRight: -32,
+              }}
+            >
+              <p style={{ fontSize: 11, color: "#5F101C", letterSpacing: "0.12em", fontWeight: 500, paddingTop: 4, paddingLeft: 32 }}>
+                {s.num}
+              </p>
+              <h3
+                className="font-display"
+                style={{
+                  fontSize: "clamp(20px, 2vw, 26px)",
+                  fontWeight: 400,
+                  color: "#2c1215",
+                  letterSpacing: "-0.01em",
+                  lineHeight: 1.2,
+                }}
+              >
+                {s.title}
+              </h3>
+              <p style={{ fontSize: 15, lineHeight: 1.8, color: "#9a7578", paddingRight: 32 }}>{s.desc}</p>
+            </div>
+          ))}
+          <div style={{ borderTop: "1px solid #EBC2BF" }} />
+        </div>
       </div>
     </section>
   );

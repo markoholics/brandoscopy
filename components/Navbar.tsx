@@ -1,10 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Navbar() {
-  const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
     <header
@@ -14,160 +21,142 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 50,
-        borderBottom: "1px solid #2a2a2a",
-        background: "rgba(12,12,12,0.92)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
+        borderBottom: scrolled ? "1px solid #EBC2BF" : "1px solid transparent",
+        background: scrolled ? "rgba(250,246,238,0.96)" : "transparent",
+        backdropFilter: scrolled ? "blur(8px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(8px)" : "none",
+        transition: "all 0.35s ease",
       }}
     >
       <nav
         style={{
-          maxWidth: "1280px",
+          maxWidth: 1280,
           margin: "0 auto",
-          padding: "0 24px",
+          padding: "0 32px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          height: "64px",
+          height: 68,
         }}
       >
-        {/* Logo */}
         <Link
           href="/"
           style={{
-            fontSize: "18px",
-            fontWeight: 600,
-            letterSpacing: "0.08em",
+            fontSize: 15,
+            fontWeight: 500,
+            letterSpacing: "0.16em",
             textTransform: "uppercase",
-            color: "#f5f0eb",
+            color: "#2c1215",
             textDecoration: "none",
           }}
         >
-          Bombay Dreams
+          BrandoScopy
         </Link>
 
-        {/* Desktop nav */}
-        <div
-          style={{
-            display: "flex",
-            gap: "40px",
-            alignItems: "center",
-          }}
-          className="hidden md:flex"
-        >
-          {["Talents", "Services", "The Agency", "Brands"].map((item) => (
+        <div className="hidden md:flex" style={{ display: "flex", gap: 40, alignItems: "center" }}>
+          {["Work", "Services", "Studio", "Contact"].map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
+              href={`#${item.toLowerCase()}`}
               style={{
-                fontSize: "13px",
-                letterSpacing: "0.06em",
+                fontSize: 12,
+                letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "#888880",
+                color: "#9a7578",
                 textDecoration: "none",
                 transition: "color 0.2s",
               }}
-              onMouseEnter={(e) => ((e.target as HTMLElement).style.color = "#f5f0eb")}
-              onMouseLeave={(e) => ((e.target as HTMLElement).style.color = "#888880")}
             >
               {item}
             </a>
           ))}
         </div>
 
-        {/* CTA buttons */}
-        <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
           <a
-            href="#apply"
-            style={{
-              fontSize: "12px",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              color: "#888880",
-              textDecoration: "none",
-              display: "none",
-            }}
+            href="#contact"
             className="hidden md:block"
-          >
-            Apply
-          </a>
-          <a
-            href="#apply"
             style={{
-              fontSize: "12px",
-              letterSpacing: "0.08em",
+              fontSize: 11,
+              letterSpacing: "0.12em",
               textTransform: "uppercase",
-              padding: "8px 20px",
-              border: "1px solid #c9a84c",
-              color: "#c9a84c",
+              padding: "10px 24px",
+              background: "#5F101C",
+              color: "#FAF6EE",
               textDecoration: "none",
-              transition: "all 0.2s",
-              background: "transparent",
-            }}
-            onMouseEnter={(e) => {
-              const el = e.target as HTMLElement;
-              el.style.background = "#c9a84c";
-              el.style.color = "#0c0c0c";
-            }}
-            onMouseLeave={(e) => {
-              const el = e.target as HTMLElement;
-              el.style.background = "transparent";
-              el.style.color = "#c9a84c";
+              transition: "opacity 0.2s",
+              whiteSpace: "nowrap",
+              fontWeight: 500,
             }}
           >
-            Represent me
+            Begin a Project →
           </a>
 
-          {/* Hamburger */}
           <button
-            onClick={() => setOpen(!open)}
+            className="md:hidden"
+            onClick={() => setMenuOpen(!menuOpen)}
             style={{
               background: "none",
               border: "none",
               cursor: "pointer",
-              padding: "4px",
+              padding: 4,
               display: "flex",
               flexDirection: "column",
-              gap: "5px",
+              gap: 5,
             }}
-            className="md:hidden"
             aria-label="Toggle menu"
           >
-            <span style={{ width: 22, height: 1.5, background: "#f5f0eb", display: "block" }} />
-            <span style={{ width: 22, height: 1.5, background: "#f5f0eb", display: "block" }} />
-            <span style={{ width: 22, height: 1.5, background: "#f5f0eb", display: "block" }} />
+            <span style={{ width: 22, height: 1.5, background: "#2c1215", display: "block" }} />
+            <span style={{ width: 22, height: 1.5, background: "#2c1215", display: "block" }} />
+            <span style={{ width: 22, height: 1.5, background: "#2c1215", display: "block" }} />
           </button>
         </div>
       </nav>
 
-      {/* Mobile menu */}
-      {open && (
+      {menuOpen && (
         <div
           style={{
-            borderTop: "1px solid #2a2a2a",
-            padding: "24px",
+            background: "#FAF6EE",
+            borderTop: "1px solid #EBC2BF",
+            padding: "24px 32px",
             display: "flex",
             flexDirection: "column",
-            gap: "20px",
-            background: "#0c0c0c",
+            gap: 20,
           }}
         >
-          {["Talents", "Services", "The Agency", "Brands", "Apply"].map((item) => (
+          {["Work", "Services", "Studio", "Contact"].map((item) => (
             <a
               key={item}
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
-              onClick={() => setOpen(false)}
+              href={`#${item.toLowerCase()}`}
+              onClick={() => setMenuOpen(false)}
               style={{
-                fontSize: "14px",
-                letterSpacing: "0.06em",
+                fontSize: 14,
+                letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color: "#888880",
+                color: "#2c1215",
                 textDecoration: "none",
               }}
             >
               {item}
             </a>
           ))}
+          <a
+            href="#contact"
+            onClick={() => setMenuOpen(false)}
+            style={{
+              fontSize: 11,
+              letterSpacing: "0.12em",
+              textTransform: "uppercase",
+              padding: "12px 24px",
+              background: "#5F101C",
+              color: "#FAF6EE",
+              textDecoration: "none",
+              alignSelf: "flex-start",
+              fontWeight: 500,
+            }}
+          >
+            Begin a Project →
+          </a>
         </div>
       )}
     </header>

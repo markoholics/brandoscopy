@@ -1,29 +1,34 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
-import RotatePrompt from "@/components/RotatePrompt";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-cormorant",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Bombay Dreams — Bombay's talent agency",
+  title: "BrandoScopy — Brand Atelier, Mumbai",
   description:
-    "Bombay's agency that treats your career like a business. Models · Actors · Creators — Transparent. Proactive. Cross-format.",
-  keywords: "talent agency, models, actors, creators, Bombay, Mumbai, India",
+    "An independent brand atelier in Mumbai, founded by Mohammad H. Rahman. We sculpt personal and luxury brands.",
+  keywords: "brand atelier, personal branding, luxury brands, Mumbai, India, BrandoScopy",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" className={`${geistSans.variable}`}>
-      <body className="min-h-screen" style={{ background: "#0c0c0c", color: "#f5f0eb" }}>
-        <RotatePrompt />
+    <html lang="en" className={`${GeistSans.variable} ${cormorant.variable}`}>
+      <body
+        className="min-h-screen"
+        style={{ background: "#FAF6EE", color: "#2c1215", fontFamily: "var(--font-geist-sans), 'Helvetica Neue', Helvetica, Arial, sans-serif" }}
+      >
         {children}
       </body>
     </html>

@@ -7,7 +7,7 @@ const principles = [
   {
     num: "№ 02",
     title: "Editorial Eye",
-    body: "Every touchpoint is treated as intentional — magazine-spread quality, designed to be remembered long after the moment passes.",
+    body: "Every touchpoint is treated as intentional: magazine-spread quality, designed to be remembered long after the moment passes.",
   },
   {
     num: "№ 03",
@@ -33,7 +33,7 @@ export default function PrinciplesSection() {
               marginBottom: 28,
             }}
           >
-            &ldquo;We architect reputations — for the people and houses whose names already carry weight.&rdquo;
+            &ldquo;We architect reputations, for the people and houses whose names already carry weight.&rdquo;
           </p>
           <div style={{ width: 40, height: 2, background: "#5F101C" }} />
         </div>

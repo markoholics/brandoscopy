@@ -19,7 +19,7 @@ export async function submitContact(formData: FormData) {
     from: "BrandoScopy <office@brandoscopy.in>",
     to: "office@brandoscopy.in",
     replyTo: email,
-    subject: `New introduction: ${name}${company ? ` — ${company}` : ""}`,
+    subject: `New introduction: ${name}${company ? ` · ${company}` : ""}`,
     html: `
       <div style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #2c1215;">
         <div style="background: #5F101C; padding: 32px 40px;">

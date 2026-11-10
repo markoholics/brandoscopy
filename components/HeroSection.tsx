@@ -15,7 +15,7 @@ export default function HeroSection() {
       <div style={{ position: "absolute", inset: 0, zIndex: 0 }}>
         <Image
           src="/hero-main.jpg"
-          alt="BrandoScopy — Brand Atelier Mumbai"
+          alt="BrandoScopy · Brand Atelier Mumbai"
           fill
           priority
           style={{ objectFit: "cover", objectPosition: "center 18%" }}
@@ -119,11 +119,13 @@ export default function HeroSection() {
               fontSize: 11,
               letterSpacing: "0.14em",
               textTransform: "uppercase",
-              color: "#2c1215",
+              padding: "15px 40px",
+              background: "transparent",
+              color: "#5F101C",
               textDecoration: "none",
-              borderBottom: "1px solid #9a7578",
-              paddingBottom: 2,
-              transition: "border-color 0.2s",
+              fontWeight: 600,
+              border: "1.5px solid #5F101C",
+              transition: "background 0.2s, color 0.2s",
             }}
           >
             View Selected Work →

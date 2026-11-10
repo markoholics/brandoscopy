@@ -12,7 +12,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "BrandoScopy — Brand Atelier, Mumbai",
+  title: "BrandoScopy · Brand Atelier, Mumbai",
   description:
     "An independent brand atelier in Mumbai, founded by Mohammad H. Rahman. We sculpt personal and luxury brands.",
   keywords: "brand atelier, personal branding, luxury brands, Mumbai, India, BrandoScopy",

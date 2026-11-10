@@ -7,7 +7,7 @@ const works = [
     category: "Celebrity Identity",
     year: "2025",
     name: "Sai Ketan Rao",
-    desc: "Full personal brand architecture for a rising Indian television name — identity, positioning, and digital presence.",
+    desc: "Full personal brand architecture for a rising Indian television name: identity, positioning, and digital presence.",
     paddingBottom: "125%",
   },
   {

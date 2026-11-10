@@ -17,7 +17,7 @@ const services = [
   {
     num: "04",
     title: "Heritage Brands",
-    desc: "Reinvention strategy and modern editorial identity for houses with legacy to preserve and new audiences to reach — without losing what made them.",
+    desc: "Reinvention strategy and modern editorial identity for houses with legacy to preserve and new audiences to reach, without losing what made them.",
   },
   {
     num: "05",
@@ -61,7 +61,7 @@ export default function ServicesSection() {
             </h2>
           </div>
           <p style={{ fontSize: 15, lineHeight: 1.8, color: "#9a7578" }}>
-            The studio remains intentionally small — a tight team taking no more than a handful of commissions a year. This is not scalability. This is craft.
+            The studio remains intentionally small: a tight team taking no more than a handful of commissions a year. This is not scalability. This is craft.
           </p>
         </div>
 

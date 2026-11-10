@@ -36,10 +36,10 @@ export default function StudioSection() {
           <div>
             {[
               "BrandoScopy is an independent brand atelier in Mumbai, founded by Mohammad H. Rahman, who believes Indian personal brands deserve the same craft as the houses they often sit beside.",
-              "Mohammad H. Rahman spent years watching Indian talent and luxury brands produce work that deserved far more than the market gave them back. Not because the talent wasn't there. Because the craft around it was missing — the long-horizon thinking, the editorial restraint, the understanding that a name is architecture, not decoration.",
+              "Mohammad H. Rahman spent years watching Indian talent and luxury brands produce work that deserved far more than the market gave them back. Not because the talent wasn't there. Because the craft around it was missing: the long-horizon thinking, the editorial restraint, the understanding that a name is architecture, not decoration.",
               "He founded BrandoScopy to close that gap. The studio sits at the intersection of two worlds he knows intimately: the international standard he absorbed living and studying in the UK, and the Bombay creative scene he came back to build inside. That duality is not incidental. It is the lens through which every commission is shaped.",
-              "The work is never about visibility for its own sake. It is about building something that holds — a reputation that compounds, an identity that the room feels before it is explained.",
-              "The studio remains intentionally small — a tight team operating from a single boutique glass-walled office, taking no more than a handful of commissions a year. Our work has shaped Indian television names, entrepreneurs, Indian luxury hospitality and interiors groups and a few names you will never read here.",
+              "The work is never about visibility for its own sake. It is about building something that holds: a reputation that compounds, an identity that the room feels before it is explained.",
+              "The studio remains intentionally small: a tight team operating from a single boutique glass-walled office, taking no more than a handful of commissions a year. Our work has shaped Indian television names, entrepreneurs, Indian luxury hospitality and interiors groups and a few names you will never read here.",
               "We do not pitch. We do not advertise. Every client comes by introduction.",
             ].map((para, i) => (
               <p key={i} style={{ fontSize: 16, lineHeight: 1.88, color: "#9a7578", marginBottom: 28 }}>

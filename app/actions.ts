@@ -16,7 +16,7 @@ export async function submitContact(formData: FormData) {
   }
 
   const { error } = await resend.emails.send({
-    from: "BrandoScopy Contact <onboarding@resend.dev>",
+    from: "BrandoScopy <office@brandoscopy.in>",
     to: "office@brandoscopy.in",
     replyTo: email,
     subject: `New introduction: ${name}${company ? ` — ${company}` : ""}`,
